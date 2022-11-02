@@ -1,0 +1,97 @@
+.container {
+    background: #fff;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1210px;
+    min-width: 990px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 70px 30px 50px 30px;
+
+    .list_box {
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+        padding-left: 30px;
+
+        >div {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: relative;
+            margin-bottom: 20px;
+
+            &::before {
+                position: absolute;
+                left: -20px;
+                top: 50%;
+                transform: translateY(-50%);
+                content: '';
+                width: 10px;
+                height: 10px;
+                background: #B6021F;
+                border-radius: 50%;
+            }
+
+            >a {
+                width: 799px;
+                font-size: 18px;
+                font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+                font-weight: 400;
+                color: #333333;
+                line-height: 28px;
+            }
+
+            .time {
+                font-size: 18px;
+                font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+                font-weight: 400;
+                color: #666666;
+            }
+        }
+    }
+
+    .pagination_box {
+        width: 100%;
+        align-items: center;
+        position: relative;
+        right: -32px;
+        margin-top: 30px;
+
+        >.jump_input {
+            align-items: center;
+
+            >input {
+                width: 45px;
+                height: 30px;
+                border-radius: 4px;
+                border: 1px solid #BEBEBE;
+                line-height: 30px;
+                font-size: 16px;
+                font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+                font-weight: 400;
+                color: #999999;
+                text-align: center;
+            }
+
+            span {
+                display: inline-block;
+                font-size: 16px;
+                font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+                font-weight: 400;
+                color: #666666;
+                line-height: 30px;
+                margin: 0 10px;
+            }
+        }
+    }
+}

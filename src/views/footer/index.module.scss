@@ -1,0 +1,68 @@
+.container {
+    background: #242A38;
+    min-width: 980px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1210px;
+    min-width: 990px;
+    padding: 70px 30px 44px 30px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin: 0 auto;
+
+    .icon {
+        height: 115px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        >img {
+            width: 221px;
+        }
+
+        >a {
+            font-size: 18px;
+            font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin-top: 25px;
+        }
+    }
+
+    .menu {
+        height: 115px;
+        padding-top: 30px;
+
+        >a {
+            width: 74px;
+            font-size: 18px;
+            font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+            font-weight: 400;
+            color: #FFFFFF;
+            margin-left: 127px;
+
+            &:first-child {
+                margin-left: 0;
+            }
+        }
+    }
+}
+
+.copy {
+    height: 80px;
+    font-size: 18px;
+    font-family: SourceHanSansCN-Normal, SourceHanSansCN;
+    font-weight: 400;
+    color: #FFFFFF;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-top: 2px dashed #FFFFFF;
+}

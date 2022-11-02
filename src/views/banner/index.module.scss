@@ -1,0 +1,19 @@
+.container {
+    width: 100%;
+    height: 500px;
+    background: #fff;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    .title {
+        font-size: 56px;
+        font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+        font-weight: bold;
+        color: #FFFFFF;
+    }
+}

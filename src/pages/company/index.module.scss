@@ -1,0 +1,21 @@
+.container {
+    background: #fff;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1210px;
+    min-width: 990px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .detail{
+        width: 100%;
+    }
+}

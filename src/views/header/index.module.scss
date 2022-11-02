@@ -1,0 +1,49 @@
+.container {
+    height: 80px;
+    background: #fff;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.2);
+}
+
+.content {
+    width: 100%;
+    max-width: 1210px;
+    min-width: 990px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 30px;
+    position: relative;
+
+    .icon {
+        >img {
+            width: 145px;
+        }
+    }
+
+    .menu {
+        align-items: center;
+
+        >a {
+            width: 72px;
+            height: 18px;
+            font-size: 18px;
+            font-family: SourceHanSansCN-Regular, SourceHanSansCN;
+            font-weight: 400;
+            color: #333333;
+            margin-left: 127px;
+        }
+    }
+
+    .nav_lamp {
+        width: 126px;
+        height: 5px;
+        background: #721020;
+        position: absolute;
+        top: 42px;
+        transition: 0.3s ease all;
+    }
+}

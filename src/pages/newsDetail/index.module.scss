@@ -1,0 +1,30 @@
+.container {
+    background: #fff;
+    min-width: 980px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1210px;
+    min-width: 990px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .title {
+        font-size: 24px;
+        font-family: SourceHanSansCN-Bold, SourceHanSansCN;
+        font-weight: bold;
+        color: #333333;
+        margin-top: 60px;
+        margin-bottom: 40px;
+    }
+
+    .detail {
+        width: 100%;
+    }
+}
