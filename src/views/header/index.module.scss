@@ -1,11 +1,16 @@
 .container {
+    width: 100%;
     height: 80px;
     background: #fff;
     min-width: 980px;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 0 10px 0 rgba(75, 75, 75, 0.2);
+    box-shadow: 0 10px 10px -8px rgba(75, 75, 75, 0.2);
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 7;
 }
 
 .content {
@@ -44,6 +49,6 @@
         background: #721020;
         position: absolute;
         top: 42px;
-        transition: 0.3s ease all;
+        transition: 0.33s ease all;
     }
 }

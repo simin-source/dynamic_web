@@ -1,9 +1,12 @@
 .container {
     background: #fff;
+    min-height: calc(100vh - 389px);
     min-width: 980px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    padding-bottom: 90px;
+    margin-top: 80px;
 }
 
 .content {

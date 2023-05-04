@@ -35,13 +35,11 @@ export default defineConfig({
   build: {
     rollupOptions: {
       input: {
-        main: './src/pages/about/index.html',
-        about: './src/pages/about/index.html',
+        main: './src/pages/index.html',
         contact: './src/pages/contact/index.html',
         group: './src/pages/group/index.html',
         news: './src/pages/news/index.html',
-        company : './src/pages/company/index.html',
-        newsDetail : './src/pages/newsDetail/index.html',
+        company: './src/pages/company/index.html',
       }
     },
     emptyOutDir: true,

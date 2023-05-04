@@ -1,0 +1,23 @@
+.swiper_box {
+    width: 100%;
+    height: auto;
+    position: relative;
+    overflow: hidden;
+    display: block;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+    margin-top: 80px;
+
+    .swiper_content {
+        width: 100%;
+        overflow: hidden;
+
+        .swiper_slide {
+            width: 100%;
+            height: 500px;
+        }
+    }
+}

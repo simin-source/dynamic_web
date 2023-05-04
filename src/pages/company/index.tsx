@@ -46,7 +46,7 @@ export default defineComponent({
             <Header />
             <div class={container}>
                 <div class={content}>
-                    <img class={detail} src={`/img/company/${this.img}`} alt='宏沣' />
+                    <img class={detail} src={`../img/company/${this.img}`} alt='宏沣' />
                 </div>
             </div>
             <Footer />

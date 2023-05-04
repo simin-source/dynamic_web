@@ -1,71 +1,93 @@
 import { defineComponent } from "vue";
-import { container, content, list_box, time, jump_input, pagination_box } from './index.module.scss';
+import { container, content, list_box, time, jump_input, pagination_box, active } from './index.module.scss';
 import { ElPagination } from 'element-plus';
 import 'element-plus/es/components/pagination/style/css'
 import './el-pagination.scss';
+import { websiteList } from "@/request/request";
+
+export interface EVENTTYPE {
+    title: string;
+    details: string;
+    time: string;
+}
 
 export default defineComponent({
     name: 'EventList',
     data() {
         return {
-            list: [
-                {
-                    title: '事件一',
-                    search: 'even1',
-                    time: '2022-11-1'
-                },
-                {
-                    title: '事件二',
-                    search: 'even2',
-                    time: '2022-11-1'
-                },
-                {
-                    title: '事件三',
-                    search: 'even3',
-                    time: '2022-11-1'
-                },
-                {
-                    title: '事件四',
-                    search: 'even4',
-                    time: '2022-11-1'
-                },
-                {
-                    title: '事件五',
-                    search: 'even5',
-                    time: '2022-11-1'
-                },
-                {
-                    title: '事件六',
-                    search: 'even6',
-                    time: '2022-11-1'
-                },
-            ],
-            currentPage: 2,
+            list: [] as EVENTTYPE[],
+            currentPage: 1,
             pageSize: 10,
-            pageTotal: 50,
+            pageTotal: 1,
             inputValue: 0,
             minPage: 1,
             maxPage: 1,
         }
     },
+    emits: ['getCurrentNews'],
+    watch: {
+        currentPage(value) {
+            this.getEventList();
+        }
+    },
     mounted() {
-        console.log(this.pageTotal % this.pageSize);
-        console.log(Math.round(this.pageTotal / this.pageSize));
-        if (this.pageTotal < this.pageSize) {
-            this.maxPage = 1;
-        } else if (this.pageTotal % this.pageSize > 0) {
-            this.maxPage = Math.round(this.pageTotal / this.pageSize) + 1;
-        } else {
-            this.maxPage = Math.round(this.pageTotal / this.pageSize);
+        this.getEventList();
+        const io = new IntersectionObserver(entires => {
+            entires.forEach(item => {
+                if (item.intersectionRatio === 1 || item.intersectionRatio > 0) {
+                    item.target.classList.add(active);
+                }
+            });
+        });
+        this.query('.top').forEach(item => {
+            io.observe(item);
+        });
+    },
+    methods: {
+        query(selector: string) {
+            return Array.from(document.querySelectorAll(selector));
+        },
+        formatTimeStamp(timeStamp: number) { // 时间戳转时间字符,10位,精确到秒
+            const date = new Date(timeStamp * 1000)
+            const Y = date.getFullYear() // 年
+            const M = date.getMonth() + 1 // 月
+            const D = date.getDate() // 日
+            return `${Y}-${M}-${D}`
+        },
+        getEventList() {
+            websiteList({ page: this.currentPage, size: this.pageSize }).then((res: any) => {
+                if (res?.page && res?.count) {
+                    this.currentPage = res.page;
+                    this.pageTotal = res.count;
+                    if (this.pageTotal < this.pageSize) {
+                        this.maxPage = 1;
+                    } else if (this.pageTotal % this.pageSize > 0) {
+                        this.maxPage = Math.round(this.pageTotal / this.pageSize) + 1;
+                    } else {
+                        this.maxPage = Math.round(this.pageTotal / this.pageSize);
+                    }
+                }
+                if (res?.list) {
+                    this.list = res.list.sort((a: any, b: any) => b.ptime - a.ptime).map((item: any) => {
+                        return {
+                            title: item.title,
+                            details: item.details,
+                            time: this.formatTimeStamp(item.ptime),
+                        }
+                    })
+                }
+            })
         }
     },
     render() {
         return <div class={container}>
-            <div class={content}>
+            <div class={`top ${content}`}>
                 <div class={list_box}>
                     {this.list?.map(item => {
                         return <div>
-                            <a href={`${window.location.origin}/newsDetail/?${item.search}`}> {item.title}</a>
+                            <div onClick={() => {
+                                this.$emit('getCurrentNews', item);
+                            }}> {item.title}</div>
                             <div class={time}> {item.time}</div>
                         </div>
                     })}

@@ -15,7 +15,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 0 30px;
+    // padding: 0 30px;
 
     .title {
         height: 24px;
@@ -24,7 +24,6 @@
         font-weight: 500;
         color: #333333;
         position: relative;
-        margin-bottom: 50px;
 
         &::before {
             content: '';
@@ -50,12 +49,24 @@
     .company_list {
         display: flex;
         flex-wrap: wrap;
-        justify-content: center;
+        justify-content: space-between;
         align-items: center;
 
-        >img {
-            width: 281px;
-            height: 144px;
+        >a {
+            align-items: center;
+            box-shadow: 5px 10px 16px 8px #EEF0F5;
+            border-radius: 5px;
+            margin-top: 50px;
+
+            img {
+                width: 271px;
+                height: auto;
+            }
+
+            &:hover {
+                transform: scale(115%);
+                box-shadow: 5px 8px 10px 4px #C5C8D5;
+            }
         }
     }
 }

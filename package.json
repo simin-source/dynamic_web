@@ -5,12 +5,13 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "vue-tsc && vite build",
+    "build": "vue-tsc --noEmit && vite build",
     "build_tst": "vue-tsc --noEmit && vite build --mode test",
     "preview": "vite preview"
   },
   "dependencies": {
     "element-plus": "^2.2.19",
+    "swiper": "^8.0.1",
     "vue": "^3.2.41"
   },
   "devDependencies": {

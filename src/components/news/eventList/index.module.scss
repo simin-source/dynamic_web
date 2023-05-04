@@ -1,9 +1,12 @@
 .container {
     background: #fff;
+    min-height: calc(100vh - 889px);
     min-width: 980px;
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
+    position: relative;
+    z-index: 1;
 }
 
 .content {
@@ -15,6 +18,30 @@
     justify-content: center;
     align-items: center;
     padding: 70px 30px 50px 30px;
+    visibility: hidden;
+
+    &.active {
+        animation: fadeInDown 1s ease-in-out 0.48s 1 normal;
+        animation-fill-mode: forwards;
+    }
+
+    @keyframes fadeInDown {
+        0% {
+            display: none;
+            position: relative;
+            bottom: -80px;
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        100% {
+            display: flex;
+            position: relative;
+            bottom: 0;
+            visibility: visible;
+            opacity: 1;
+        }
+    }
 
     .list_box {
         width: 100%;
@@ -42,13 +69,19 @@
                 border-radius: 50%;
             }
 
-            >a {
+            >div:first-child {
                 width: 799px;
                 font-size: 18px;
                 font-family: SourceHanSansCN-Regular, SourceHanSansCN;
                 font-weight: 400;
                 color: #333333;
                 line-height: 28px;
+
+                &:hover {
+                    color: #860200;
+                    font-weight: bold;
+                    cursor: pointer;
+                }
             }
 
             .time {

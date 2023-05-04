@@ -1,7 +1,7 @@
 import { defineComponent } from "vue";
 import Header from '@/views/header/index'
 import Footer from '@/views/footer/index'
-import Banner from '@/views/banner/index'
+import SwiperBanner from "@/views/swiper";
 import Company from '@/components/group/company/index'
 
 export default defineComponent({
@@ -9,7 +9,7 @@ export default defineComponent({
     render() {
         return <div>
             <Header />
-            <Banner title="投资组合" info={{bg:'/img/banner/group.png'}}/>
+            <SwiperBanner/>
             <Company/>
             <Footer />
         </div >;
